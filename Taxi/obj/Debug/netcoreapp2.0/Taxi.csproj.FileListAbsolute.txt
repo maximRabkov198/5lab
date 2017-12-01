@@ -1,0 +1,11 @@
+C:\Users\Никита\Desktop\Taxi\Taxi\obj\Debug\netcoreapp2.0\Taxi.csprojResolveAssemblyReference.cache
+C:\Users\Никита\Desktop\Taxi\Taxi\obj\Debug\netcoreapp2.0\Taxi.csproj.CoreCompileInputs.cache
+C:\Users\Никита\Desktop\Taxi\Taxi\obj\Debug\netcoreapp2.0\Taxi.AssemblyInfoInputs.cache
+C:\Users\Никита\Desktop\Taxi\Taxi\obj\Debug\netcoreapp2.0\Taxi.AssemblyInfo.cs
+C:\Users\Никита\Desktop\Taxi\Taxi\bin\Debug\netcoreapp2.0\Taxi.deps.json
+C:\Users\Никита\Desktop\Taxi\Taxi\bin\Debug\netcoreapp2.0\Taxi.runtimeconfig.json
+C:\Users\Никита\Desktop\Taxi\Taxi\bin\Debug\netcoreapp2.0\Taxi.runtimeconfig.dev.json
+C:\Users\Никита\Desktop\Taxi\Taxi\bin\Debug\netcoreapp2.0\Taxi.dll
+C:\Users\Никита\Desktop\Taxi\Taxi\bin\Debug\netcoreapp2.0\Taxi.pdb
+C:\Users\Никита\Desktop\Taxi\Taxi\obj\Debug\netcoreapp2.0\Taxi.dll
+C:\Users\Никита\Desktop\Taxi\Taxi\obj\Debug\netcoreapp2.0\Taxi.pdb

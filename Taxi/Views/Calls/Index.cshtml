@@ -1,0 +1,59 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@using Taxi.ViewModelss;
+@using Taxi.Models
+@model IndexViewModel
+@addTagHelper "*,  Taxi"
+
+
+<h2>Calls</h2>
+<div class="container">
+    <form method="get" role="form" class="form-horizontal">
+
+        <div class="form-group">
+
+            <label class="control-label">Дстанционный номер: </label>
+            @Html.TextBox("DstinationNumber", Model.FilterView.SelectedDstinationNumber, htmlAttributes: new { @class = "form-control" })
+
+            <label class="control-label">Номер телефона: </label>
+            @Html.TextBox("PhoneNumber", Model.FilterView.SelectedPhoneNumber, htmlAttributes: new { @class = "form-control" })
+
+
+
+            <br>
+            <input type="submit" value="Отфильтровать" class="btn btn-default" />
+        </div>
+    </form>
+</div>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewBag.DstinationNumberSort">Дстанционный номер</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewBag.PhoneNumberSort">Номер телефона</a></th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Calls)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DstinationNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Callsid">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Callsid">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Callsid">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<page-link page-model="Model.PageViewModel" page-action="Index"></page-link>

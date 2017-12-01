@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@using Taxi.ViewModelss;
+@using Taxi.Models
+@model IndexViewModel
+@addTagHelper "*,  Taxi"
+
+
+<h2>Associates</h2>
+<div class="container">
+    <form method="get" role="form" class="form-horizontal">
+
+        <div class="form-group">
+
+            <label class="control-label">Опыт: </label>
+            @Html.TextBox("Experiance", Model.FilterView.SelectedExperiance, htmlAttributes: new { @class = "form-control" })
+
+            <label class="control-label">Возраст: </label>
+            @Html.TextBox("Age", Model.FilterView.SelectedAge, htmlAttributes: new { @class = "form-control" })
+
+            <label class="control-label">Имя:</label>
+            @Html.TextBox("Name", Model.FilterView.SelectedName, htmlAttributes: new { @class = "form-control" })
+
+            <br>
+            <input type="submit" value="Отфильтровать" class="btn btn-default" />
+        </div>
+    </form>
+</div>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewBag.ExperianceSort">Опыт</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewBag.AgeSort">Возраст</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="@ViewBag.NameSort">Имя</a></th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Associates)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Experiance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Associatesid">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Associatesid">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Associatesid">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<page-link page-model="Model.PageViewModel" page-action="Index"></page-link>

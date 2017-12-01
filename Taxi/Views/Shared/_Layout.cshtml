@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="~/js/site.js"></script>
+    <script type="text/javascript" src="~/js/jquery-1.2.6.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/main.css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="Home" asp-controller="Home" asp-action="Index" class="navbar-brand">TAXI</a>
+            </div>
+            <div class="navbar-collapse collapse">
+
+
+
+
+                @if (User.Identity.IsAuthenticated)
+                {
+
+
+                    if (User.IsInRole("admin"))
+                    {
+                        <ul class="nav navbar-nav navbar-left">
+
+                            <li><a asp-controller="Calls" asp-action="Index" class="text-left">Calls</a></li>
+                            <li><a asp-controller="Cars" asp-action="Index" class="text-left">Cars</a></li>
+                            <li> <a asp-controller="Associates" asp-action="Index" class="text-left">Associates</a></li>
+                        </ul>
+
+                    }
+
+                    if (User.IsInRole("user"))
+                    {
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a asp-controller="Calls" asp-action="Index" class="text-left">Calls</a></li>
+                            <li><a asp-controller="Cars" asp-action="Index" class="text-left">Cars</a></li>
+                            <li> <a asp-controller="Associates" asp-action="Index" class="text-left">Associates</a></li>
+
+                        </ul>
+
+                    }
+                }
+
+
+
+                <ul class="nav navbar-nav navbar-right ">
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <li style="padding:10px;color:white;">@User.Identity.Name</li>
+                        <li>
+                            <form method="post" asp-controller="Account" asp-action="LogOff" style="padding:10px">
+                                <input type="submit" value="Выход" />
+                            </form>
+                        </li>
+
+
+                    }
+
+                    else
+                    {
+
+                        <li><a asp-controller="Account" asp-action="Login">Вход</a></li>
+                        <li><a asp-controller="Account" asp-action="Register">Регистрация</a></li>
+
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; TAXI 2017 - </p>
+        </footer>
+    </div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

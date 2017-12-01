@@ -1,0 +1,87 @@
+﻿@model Taxi.Models.Cars
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Cars</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BodyNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BodyNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EngineNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EngineNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mileage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mileage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfLastMaintetance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateOfLastMaintetance)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Machanic)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Machanic)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialMarks)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SpecialMarks)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Driver)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Driver.Associatesid)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mark)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mark.CarsMarkid)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Carsid" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
